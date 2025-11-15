@@ -55,3 +55,42 @@ Test Case 5: Select LH
     Verify LCD updates the mode label to “>H”.
     Verify ADC reading continues to update in the background.
 
+Test Case 6: Increasing LL
+    [Documentation]    In LL edit mode, pressing UP key increases the low limit value by 10 and updates LCD.
+    # Arrange
+    Enter LL mode via SELECT (use Test Case 2 if needed).
+    # Act
+    Press UP key once or multiple times.
+    # Assert
+    Verify LL numeric value increases by 10 with each press on LCD.
+    Confirm LH remains unchanged.
+
+Test Case 7: Decreasing LL
+    [Documentation]    In LL edit mode, pressing DOWN key decreases the low limit value by 10 and updates LCD.
+    # Arrange
+    Enter LL mode via SELECT (use Test Case 2 if needed).
+    # Act
+    Press DOWN key once or multiple times.
+    # Assert
+    Verify LL numeric value decreases by 10 with each press on LCD.
+    Confirm LH remains unchanged.
+
+Test Case 8: Increasing LH
+    [Documentation]    In LH edit mode, pressing UP key increases the low limit value by 10 and updates LCD.
+    # Arrange
+    Enter LL mode via SELECT (use Test Case 3 if needed).
+    # Act
+    Press UP key once or multiple times.
+    # Assert
+    Verify LL numeric value increases by 10 with each press on LCD.
+    Confirm LH remains unchanged.
+
+Test Case 9: Decreasing LH
+    [Documentation]    In LH edit mode, pressing DOWN key decreases the low limit value by 10 and updates LCD.
+    # Arrange
+    Enter LL mode via SELECT (use Test Case 3 if needed).
+    # Act
+    Press DOWN key once or multiple times.
+    # Assert
+    Verify LL numeric value decreases by 10 with each press on LCD.
+    Confirm LH remains unchanged.
