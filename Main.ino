@@ -77,6 +77,19 @@ int main(void)
             buzState = 0;
         }
 
-       
-}
+        // ===== LCD update =====
+        LCD_Clear();
 
+        char buffer[16];
+        sprintf(buffer, "LDR:%4d BUZ:%s", LDR_Value, buzState ? "ON " : "OFF");
+        LCD_String_xy(0,0,buffer);
+
+        sprintf(buffer, "LL:%4d LH:%4d", LL, LH);
+        LCD_String_xy(1,0,buffer);
+
+        if (editMode == 1) LCD_String_xy(1,0,">");
+        else if (editMode == 2) LCD_String_xy(1,8,">");
+
+        _delay_ms(200);
+    }
+}
