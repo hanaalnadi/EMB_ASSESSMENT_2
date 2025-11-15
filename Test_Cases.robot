@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation    Embedded Systems Assessment 2 – Functional Test Cases for LDR Threshold System.
+
 *** Test Cases ***
 Test Case 1: Initialization
     [Documentation]    System boots up showing startup layout, then switches to default display showing current LDR value and LL/LH limits.
@@ -54,6 +55,26 @@ Test Case 5: Select LH
     Verify LCD updates the mode label to “>H”.
     Verify ADC reading continues to update in the background.
 
+Test Case 6: Removing selection by force
+    [Documentation]    Pressing SELECT a third time cycles back to normal mode (no edit active).
+    # Arrange
+    Start from LH mode (use Test Case 3 if needed).
+    # Act
+    Press SELECT once more.
+    # Assert
+    Verify LCD returns to normal screen.
+    Ensure buzzer behaviour depends solely on LDR level again.
+
+Test Case 7: Removing selection by default time
+    [Documentation]    System automatically exits edit mode after a period of 3 seconds long inactivity.
+    # Arrange
+    Enter LL or LH mode (use Test Case 2 or 3 if needed).
+    # Act
+    Wait without pressing any button for 3 seconds.
+    # Assert
+    Verify LCD automatically switches back to normal display mode.
+    Confirm new threshold values (if changed) remain stored.
+
 Test Case 8: Increasing LL
     [Documentation]    In LL edit mode, pressing UP key increases the low limit value by 10 and updates LCD.
     # Arrange
@@ -64,7 +85,7 @@ Test Case 8: Increasing LL
     Verify LL numeric value increases by 10 with each press on LCD.
     Confirm LH remains unchanged.
 
-Test Case 6: Decreasing LL
+Test Case 9: Decreasing LL
     [Documentation]    In LL edit mode, pressing DOWN key decreases the low limit value by 10 and updates LCD.
     # Arrange
     Enter LL mode via SELECT (use Test Case 2 if needed).
@@ -74,7 +95,7 @@ Test Case 6: Decreasing LL
     Verify LL numeric value decreases by 10 with each press on LCD.
     Confirm LH remains unchanged.
 
-Test Case 7: Increasing LH
+Test Case 10: Increasing LH
     [Documentation]    In LH edit mode, pressing UP key increases the low limit value by 10 and updates LCD.
     # Arrange
     Enter LL mode via SELECT (use Test Case 3 if needed).
@@ -84,7 +105,7 @@ Test Case 7: Increasing LH
     Verify LL numeric value increases by 10 with each press on LCD.
     Confirm LH remains unchanged.
 
-Test Case 8: Decreasing LH
+Test Case 11: Decreasing LH
     [Documentation]    In LH edit mode, pressing DOWN key decreases the low limit value by 10 and updates LCD.
     # Arrange
     Enter LL mode via SELECT (use Test Case 3 if needed).
@@ -93,3 +114,13 @@ Test Case 8: Decreasing LH
     # Assert
     Verify LL numeric value decreases by 10 with each press on LCD.
     Confirm LH remains unchanged.
+
+Test Case 12: Using UP, DOWN buttons out of select mode
+    [Documentation]    UP/DOWN keys have no effect outside edit mode.
+    # Arrange
+    Ensure system is in default mode (use Test Case 4 or 5 if needed).
+    # Act
+    Press UP or DOWN buttons.
+    # Assert
+    Verify LCD values do not change (LL and LH remain constant).
+    Confirm buzzer and display continue normal operation.
