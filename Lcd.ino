@@ -1,6 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "Lcd.h"
+#include "BitMath.h"               // [CHANGED]
 #if !defined(__AVR_ATmega328P__)
 #include <avr/iom328p.h>
 #endif
@@ -14,40 +15,64 @@
 
 void LCD_Command(unsigned char cmnd)
 {
-    LCD_Port = (LCD_Port & 0x0F) | (cmnd & 0xF0);
-    RS_EN_Port &= ~(1<<RS);
-    RS_EN_Port |= (1<<EN);
+    // Upper nibble
+    // LCD_Port = (LCD_Port & 0x0F) | (cmnd & 0xF0);
+    WRITE_MASK(LCD_Port, 0xF0, (cmnd & 0xF0));   // [CHANGED]
+
+    // RS_EN_Port &= ~(1<<RS);
+    CLR_BIT(RS_EN_Port, RS);                     // [CHANGED]
+    // RS_EN_Port |= (1<<EN);
+    SET_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_us(1);
-    RS_EN_Port &= ~(1<<EN);
+    // RS_EN_Port &= ~(1<<EN);
+    CLR_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_us(200);
 
-    LCD_Port = (LCD_Port & 0x0F) | (cmnd<<4);
-    RS_EN_Port |= (1<<EN);
+    // Lower nibble
+    // LCD_Port = (LCD_Port & 0x0F) | (cmnd<<4);
+    WRITE_MASK(LCD_Port, 0xF0, (cmnd << 4));     // [CHANGED]
+
+    // RS_EN_Port |= (1<<EN);
+    SET_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_us(1);
-    RS_EN_Port &= ~(1<<EN);
+    // RS_EN_Port &= ~(1<<EN);
+    CLR_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_ms(2);
 }
 
 void LCD_Char(unsigned char data)
 {
-    LCD_Port = (LCD_Port & 0x0F) | (data & 0xF0);
-    RS_EN_Port |= (1<<RS);
-    RS_EN_Port |= (1<<EN);
+    // Upper nibble
+    // LCD_Port = (LCD_Port & 0x0F) | (data & 0xF0);
+    WRITE_MASK(LCD_Port, 0xF0, (data & 0xF0));   // [CHANGED]
+
+    // RS_EN_Port |= (1<<RS);
+    SET_BIT(RS_EN_Port, RS);                     // [CHANGED]
+    // RS_EN_Port |= (1<<EN);
+    SET_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_us(1);
-    RS_EN_Port &= ~(1<<EN);
+    // RS_EN_Port &= ~(1<<EN);
+    CLR_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_us(200);
 
-    LCD_Port = (LCD_Port & 0x0F) | (data<<4);
-    RS_EN_Port |= (1<<EN);
+    // Lower nibble
+    // LCD_Port = (LCD_Port & 0x0F) | (data<<4);
+    WRITE_MASK(LCD_Port, 0xF0, (data << 4));     // [CHANGED]
+
+    // RS_EN_Port |= (1<<EN);
+    SET_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_us(1);
-    RS_EN_Port &= ~(1<<EN);
+    // RS_EN_Port &= ~(1<<EN);
+    CLR_BIT(RS_EN_Port, EN);                     // [CHANGED]
     _delay_ms(2);
 }
 
 void LCD_Init(void)
 {
     LCD_Dir = 0xFF;
-    RS_EN_Dir |= (1<<EN)|(1<<RS);
+    // RS_EN_Dir |= (1<<EN)|(1<<RS);
+    SET_MASK(RS_EN_Dir, (1<<EN) | (1<<RS));      // [CHANGED]
+
     _delay_ms(20);
     LCD_Command(0x02);
     LCD_Command(0x28);
