@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2025-11-15T19:24:34.288079" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Cases" source="C:\Users\rokia\Desktop\Test_Cases.robot">
+<test id="s1-t1" name="Test Case 1: Initialization" line="180">
+<kw name="KW_Ensure_Arduino_Connected">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.320084" elapsed="0.000080"/>
+</kw>
+<doc>Ensure Arduino is connected and powered via USB. LCD and keypad shield should be attached properly.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.319766" elapsed="0.000460"/>
+</kw>
+<kw name="KW_Press_RESET_or_power">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.320839" elapsed="0.000068"/>
+</kw>
+<doc>Press RESET or power the circuit.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.320528" elapsed="0.000419"/>
+</kw>
+<kw name="KW_Verify_LDR_MONITOR_STARTUP">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.321354" elapsed="0.000052"/>
+</kw>
+<doc>Verify LCD shows startup message (“LDR MONITOR READ”) for a few seconds.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.321216" elapsed="0.000225"/>
+</kw>
+<kw name="KW_Verify_default_mode_display">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.321837" elapsed="0.000051"/>
+</kw>
+<doc>Verify LCD then switches to default mode displaying live LDR value, stored LL/LH values, and Buzzer state.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.321703" elapsed="0.000226"/>
+</kw>
+<kw name="KW_Confirm_no_keypad_inputs_required">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.322467" elapsed="0.000060"/>
+</kw>
+<doc>Confirm no keypad inputs are required to start.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.322292" elapsed="0.000274"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.319000" elapsed="0.003792"/>
+</test>
+<test id="s1-t2" name="Test Case 2: LDR value in range" line="187">
+<kw name="KW_Set_LL_LH_thresholds">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.323838" elapsed="0.000062"/>
+</kw>
+<doc>Set LL and LH thresholds appropriately using Test Cases (use Test Case 3 to 10 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.323673" elapsed="0.000269"/>
+</kw>
+<kw name="KW_Adjust_light_on_sensor">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.324347" elapsed="0.000059"/>
+</kw>
+<doc>Adjust light on sensor so the ADC value lies between LL and LH.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.324184" elapsed="0.000260"/>
+</kw>
+<kw name="KW_Verify_LDR_within_limits">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.324737" elapsed="0.000058"/>
+</kw>
+<doc>Verify LCD shows LDR value within limits.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.324595" elapsed="0.000238"/>
+</kw>
+<kw name="KW_Confirm_buzzer_off">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.325171" elapsed="0.000080"/>
+</kw>
+<doc>Confirm buzzer is off.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.324979" elapsed="0.000336"/>
+</kw>
+<kw name="KW_Ensure_buzzer_state_off_on_LCD">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.325827" elapsed="0.000066"/>
+</kw>
+<doc>Ensure buzzer state on LCD is off.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.325659" elapsed="0.000278"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.323288" elapsed="0.002952"/>
+</test>
+<test id="s1-t3" name="Test Case 3: LDR value out of range" line="194">
+<kw name="KW_Maintain_same_thresholds">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.328394" elapsed="0.000061"/>
+</kw>
+<doc>Maintain same thresholds from previous test.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.328202" elapsed="0.000293"/>
+</kw>
+<kw name="KW_Cover_or_shine_strong_light">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.328949" elapsed="0.000052"/>
+</kw>
+<doc>Cover or shine strong light on LDR to push ADC reading below LL or above LH.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.328809" elapsed="0.000225"/>
+</kw>
+<kw name="KW_Verify_LDR_outside_limits">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.329433" elapsed="0.000053"/>
+</kw>
+<doc>Verify LCD displays updated LDR value outside limits.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.329297" elapsed="0.000224"/>
+</kw>
+<kw name="KW_Confirm_buzzer_on">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.329917" elapsed="0.000055"/>
+</kw>
+<doc>Confirm buzzer is on.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.329779" elapsed="0.000226"/>
+</kw>
+<kw name="KW_Ensure_buzzer_state_on_on_LCD">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.330396" elapsed="0.000054"/>
+</kw>
+<doc>Ensure buzzer state on LCD is on.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.330262" elapsed="0.000223"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.327466" elapsed="0.003259"/>
+</test>
+<test id="s1-t4" name="Test Case 4: Select LL" line="201">
+<kw name="KW_Ensure_device_default_mode">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.332020" elapsed="0.000057"/>
+</kw>
+<doc>Ensure device is in default mode showing live LDR and limits.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.331844" elapsed="0.000271"/>
+</kw>
+<kw name="KW_Press_SELECT_once">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.332539" elapsed="0.000056"/>
+</kw>
+<doc>Press SELECT button once.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.332390" elapsed="0.000253"/>
+</kw>
+<kw name="KW_Verify_mode_label_L">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.333082" elapsed="0.000065"/>
+</kw>
+<doc>Verify LCD updates the mode label to “&gt;L”.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.332934" elapsed="0.000401"/>
+</kw>
+<kw name="KW_Verify_ADC_updates_background">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.333748" elapsed="0.000065"/>
+</kw>
+<doc>Verify ADC reading continues to update in the background.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.333564" elapsed="0.000292"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.331387" elapsed="0.002778"/>
+</test>
+<test id="s1-t5" name="Test Case 5: Select LH" line="207">
+<kw name="KW_Start_from_LL_mode">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.335938" elapsed="0.000073"/>
+</kw>
+<doc>Start from LL mode (use Test Case 2 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.335748" elapsed="0.000307"/>
+</kw>
+<kw name="KW_Press_SELECT_again">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.336488" elapsed="0.000057"/>
+</kw>
+<doc>Press SELECT button again.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.336335" elapsed="0.000371"/>
+</kw>
+<kw name="KW_Verify_mode_label_H">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.337081" elapsed="0.000060"/>
+</kw>
+<doc>Verify LCD updates the mode label to “&gt;H”.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.336936" elapsed="0.000242"/>
+</kw>
+<kw name="KW_Verify_ADC_updates_background">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.337571" elapsed="0.000057"/>
+</kw>
+<doc>Verify ADC reading continues to update in the background.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.337426" elapsed="0.000241"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.335190" elapsed="0.002698"/>
+</test>
+<test id="s1-t6" name="Test Case 6: Removing selection by force" line="213">
+<kw name="KW_Start_from_LH_mode">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.339071" elapsed="0.000074"/>
+</kw>
+<doc>Start from LH mode (use Test Case 3 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.338889" elapsed="0.000294"/>
+</kw>
+<kw name="KW_Press_SELECT_once_more">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.339592" elapsed="0.000054"/>
+</kw>
+<doc>Press SELECT once more.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.339461" elapsed="0.000218"/>
+</kw>
+<kw name="KW_Verify_LCD_normal_screen">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.340082" elapsed="0.000050"/>
+</kw>
+<doc>Verify LCD returns to normal screen.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.339951" elapsed="0.000215"/>
+</kw>
+<kw name="KW_Ensure_buzzer_behaviour_depends_on_LDR">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.340582" elapsed="0.000053"/>
+</kw>
+<doc>Ensure buzzer behaviour depends solely on LDR level again.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.340446" elapsed="0.000224"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.338599" elapsed="0.002329"/>
+</test>
+<test id="s1-t7" name="Test Case 7: Removing selection by default time" line="219">
+<kw name="KW_Enter_LL_or_LH_mode">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.342130" elapsed="0.000056"/>
+</kw>
+<doc>Enter LL or LH mode (use Test Case 2 or 3 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.341991" elapsed="0.000231"/>
+</kw>
+<kw name="KW_Wait_3_seconds">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.342635" elapsed="0.000053"/>
+</kw>
+<doc>Wait without pressing any button for 3 seconds.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.342495" elapsed="0.000227"/>
+</kw>
+<kw name="KW_Verify_auto_exit_edit_mode">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.343122" elapsed="0.000051"/>
+</kw>
+<doc>Verify LCD automatically switches back to normal display mode.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.342992" elapsed="0.000215"/>
+</kw>
+<kw name="KW_Confirm_new_thresholds_stored">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.343605" elapsed="0.000051"/>
+</kw>
+<doc>Confirm new threshold values (if changed) remain stored.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.343476" elapsed="0.000213"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.341632" elapsed="0.002326"/>
+</test>
+<test id="s1-t8" name="Test Case 8: Increasing LL" line="225">
+<kw name="KW_Enter_LL_mode_via_SELECT">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.345141" elapsed="0.000054"/>
+</kw>
+<doc>Enter LL mode via SELECT (use Test Case 2 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.345006" elapsed="0.000225"/>
+</kw>
+<kw name="KW_Press_UP_key">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.345630" elapsed="0.000052"/>
+</kw>
+<doc>Press UP key once or multiple times.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.345499" elapsed="0.000217"/>
+</kw>
+<kw name="KW_Verify_LL_increases_by_10">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.346123" elapsed="0.000053"/>
+</kw>
+<doc>Verify LL numeric value increases by 10 with each press on LCD.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.345987" elapsed="0.000223"/>
+</kw>
+<kw name="KW_Confirm_LH_unchanged">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.346608" elapsed="0.000052"/>
+</kw>
+<doc>Confirm LH remains unchanged.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.346478" elapsed="0.000216"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.344642" elapsed="0.002322"/>
+</test>
+<test id="s1-t9" name="Test Case 9: Decreasing LL" line="231">
+<kw name="KW_Enter_LL_mode_via_SELECT">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.348099" elapsed="0.000062"/>
+</kw>
+<doc>Enter LL mode via SELECT (use Test Case 2 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.347941" elapsed="0.000260"/>
+</kw>
+<kw name="KW_Press_DOWN_key">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.348736" elapsed="0.000064"/>
+</kw>
+<doc>Press DOWN key once or multiple times.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.348532" elapsed="0.000312"/>
+</kw>
+<kw name="KW_Verify_LL_decreases_by_10">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.349262" elapsed="0.000072"/>
+</kw>
+<doc>Verify LL numeric value decreases by 10 with each press on LCD.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.349055" elapsed="0.000328"/>
+</kw>
+<kw name="KW_Confirm_LH_unchanged">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.350022" elapsed="0.000075"/>
+</kw>
+<doc>Confirm LH remains unchanged.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.349548" elapsed="0.000594"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.347642" elapsed="0.002723"/>
+</test>
+<test id="s1-t10" name="Test Case 10: Increasing LH" line="237">
+<kw name="KW_Enter_LH_mode_via_SELECT">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.352274" elapsed="0.000059"/>
+</kw>
+<doc>Enter LH mode via SELECT (use Test Case 3 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.352101" elapsed="0.000273"/>
+</kw>
+<kw name="KW_Press_UP_key">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.352785" elapsed="0.000052"/>
+</kw>
+<doc>Press UP key once or multiple times.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.352651" elapsed="0.000219"/>
+</kw>
+<kw name="KW_Verify_LH_increases_by_10">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.353275" elapsed="0.000050"/>
+</kw>
+<doc>Verify LH numeric value increases by 10 with each press on LCD.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.353145" elapsed="0.000317"/>
+</kw>
+<kw name="KW_Confirm_LH_unchanged">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.353868" elapsed="0.000050"/>
+</kw>
+<doc>Confirm LH remains unchanged.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.353740" elapsed="0.000212"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.351408" elapsed="0.002809"/>
+</test>
+<test id="s1-t11" name="Test Case 11: Decreasing LH" line="243">
+<kw name="KW_Enter_LH_mode_via_SELECT">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.355413" elapsed="0.000071"/>
+</kw>
+<doc>Enter LH mode via SELECT (use Test Case 3 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.355215" elapsed="0.000310"/>
+</kw>
+<kw name="KW_Press_DOWN_key">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.355979" elapsed="0.000050"/>
+</kw>
+<doc>Press DOWN key once or multiple times.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.355847" elapsed="0.000215"/>
+</kw>
+<kw name="KW_Verify_LH_decreases_by_10">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.356481" elapsed="0.000050"/>
+</kw>
+<doc>Verify LH numeric value decreases by 10 with each press on LCD.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.356350" elapsed="0.000214"/>
+</kw>
+<kw name="KW_Confirm_LH_unchanged">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.356973" elapsed="0.000051"/>
+</kw>
+<doc>Confirm LH remains unchanged.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.356844" elapsed="0.000213"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.354912" elapsed="0.002412"/>
+</test>
+<test id="s1-t12" name="Test Case 12: Using UP, DOWN buttons out of select mode" line="249">
+<kw name="KW_Ensure_system_default_mode">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.358584" elapsed="0.000052"/>
+</kw>
+<doc>Ensure system is in default mode (use Test Case 4 or 5 if needed).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.358450" elapsed="0.000223"/>
+</kw>
+<kw name="KW_Press_UP_or_DOWN_buttons">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.359074" elapsed="0.000050"/>
+</kw>
+<doc>Press UP or DOWN buttons.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.358945" elapsed="0.000213"/>
+</kw>
+<kw name="KW_Verify_LCD_values_do_not_change">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.359561" elapsed="0.000052"/>
+</kw>
+<doc>Verify LCD values do not change (LL and LH remain constant).</doc>
+<status status="PASS" start="2025-11-15T19:24:34.359431" elapsed="0.000217"/>
+</kw>
+<kw name="KW_Confirm_buzzer_display_continue">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.360041" elapsed="0.000050"/>
+</kw>
+<doc>Confirm buzzer and display continue normal operation.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.359909" elapsed="0.000216"/>
+</kw>
+<status status="PASS" start="2025-11-15T19:24:34.358093" elapsed="0.002279"/>
+</test>
+<doc>Embedded Systems Assessment 2 – Functional Test Cases for LDR Threshold System.</doc>
+<status status="PASS" start="2025-11-15T19:24:34.289170" elapsed="0.072376"/>
+</suite>
+<statistics>
+<total>
+<stat pass="12" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Cases" id="s1" pass="12" fail="0" skip="0">Test Cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
