@@ -3,33 +3,29 @@
 #endif
 #include <avr/io.h>
 #include "Adc.h"
-#include "BitMath.h"                        // [CHANGED]
+#include "BitMath.h"
 
 void Adc_Init(void)
 {
-    // ADMUX = (1<<REFS0);  // AVcc ref
-    ADMUX = 0x00;                                  // [CHANGED]
-    SET_BIT(ADMUX, REFS0);                         // [CHANGED]
+    ADMUX = 0x00;                        /* Clear ADMUX */
+    SET_BIT(ADMUX, REFS0);               /* Select AVcc as reference */
 
-    // ADCSRA = (1<<ADEN) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0);
-    ADCSRA = 0x00;                                  // [CHANGED]
-    SET_BIT(ADCSRA, ADEN);                          // [CHANGED]
-    SET_BIT(ADCSRA, ADPS2);                         // [CHANGED]
-    SET_BIT(ADCSRA, ADPS1);                         // [CHANGED]
-    SET_BIT(ADCSRA, ADPS0);                         // [CHANGED]
+    ADCSRA = 0x00;                       /* Clear ADCSRA */
+    SET_BIT(ADCSRA, ADEN);               /* Enable ADC */
+    SET_BIT(ADCSRA, ADPS2);              /* Prescaler bit */
+    SET_BIT(ADCSRA, ADPS1);              /* Prescaler bit */
+    SET_BIT(ADCSRA, ADPS0);              /* Prescaler bit (128 total) */
 }
 
 unsigned short Adc_ReadChannel(unsigned char ch)
 {
-    ch &= 0b00000111;
-    // ADMUX = (ADMUX & 0xF8) | ch;
-    WRITE_MASK(ADMUX, 0x07, ch);                    // [CHANGED]
+    ch &= 0b00000111;                    /* Mask channel number (0–7 only) */
 
-    // ADCSRA |= (1<<ADSC);
-    SET_BIT(ADCSRA, ADSC);                          // [CHANGED]
+    WRITE_MASK(ADMUX, 0x07, ch);         /* Select ADC channel */
 
-    // while(ADCSRA & (1<<ADSC));
-    while (READ_BIT(ADCSRA, ADSC)) { }              // [CHANGED]
+    SET_BIT(ADCSRA, ADSC);               /* Start conversion */
 
-    return ADC;
+    while (READ_BIT(ADCSRA, ADSC)) { }   /* Wait for conversion to finish */
+
+    return ADC;                          /* Return ADC result */
 }
